@@ -1,0 +1,10 @@
+.homme-page{
+    background-color: #202d36;
+}
+
+.hompage-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
