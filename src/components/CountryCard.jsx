@@ -3,7 +3,7 @@ import '../styles/CountryCard.css';
 
 const CountryCard = ({ country }) => {
     return (
-        <div className="col-md-3 col-12 country-card d-flex flex-column mt-3">
+        <div className="col-md-4 col-lg-3 col-12 country-card d-flex flex-column mt-3">
             <img 
                 className='country-card-image' 
                 src={country.flags.png} 
