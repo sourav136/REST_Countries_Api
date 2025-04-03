@@ -1,8 +1,20 @@
+.homme-page{
+    background-color: #202d36;
+}
+
+.hompage-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
 .country-card-image{
     display: block;
     aspect-ratio: 16/9;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    width: 100%;
 }
 
 .country-text-container{
@@ -29,4 +41,11 @@
 .country-card-details{
     font-weight: 400;
     opacity: 0.7;
+}
+
+.country-card-link{
+    text-decoration: none;
+    width: 100%;
+    display: block;
+
 }
