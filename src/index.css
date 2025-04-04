@@ -1,3 +1,14 @@
 :root{
   --font-family: "Open Sans";
+  --bg-color: #f5f5f5;
+  --font-color: #000;
+  --card-bg: #ffffff;
+  --filter: invert(0%);
+}
+
+[data-theme="dark"] {
+  --bg-color: #202d36;
+  --font-color: #fff;
+  --card-bg: #2b3743;
+  --filter: invert(100%);
 }

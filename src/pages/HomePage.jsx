@@ -3,9 +3,11 @@ import '../styles/Styles.css'
 import {fetchAllCountries} from '../services/FetchCountries'
 import CountryCard from '../components/CountryCard'
 import SearchIcon from '../../public/magnifying-glass-solid.svg'
+import { ThemeContext } from "../context/ThemeContext";
 
 const Homepage = () => {
 
+    const { theme, toggleTheme } = useContext(ThemeContext);
     const [countries, setCountries] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedRegion, setSelectedRegion] = useState("All");
@@ -29,6 +31,10 @@ const Homepage = () => {
         <div>
             <div className="homme-page">
                 <div className="container">
+                    <div className={`app-container ${theme}`}>
+                        <button onClick={toggleTheme}>Toggle Theme</button>
+                        <h1>{theme === "light" ? "Light Mode ☀️" : "Dark Mode 🌙"}</h1>
+                    </div>
                     <div className="search-part w-100 d-flex flex-wrap justify-content-between">
                         <div className="col-lg-5 col-md-6 col-12 search-container d-flex">
                             <img src={SearchIcon} alt="Search icon" className='sarch-icon' />
