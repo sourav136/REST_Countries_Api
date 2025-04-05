@@ -1,4 +1,4 @@
-const CORS_PROXY = "https://corsproxy.io/?";
+const CORS_PROXY = "https://api.allorigins.win/raw?url=";
 const API_BASE = "https://restcountries.com/v3.1";
 
 export const fetchAllCountries = async () => {
