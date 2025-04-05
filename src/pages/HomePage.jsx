@@ -3,11 +3,10 @@ import '../styles/Styles.css'
 import {fetchAllCountries} from '../services/FetchCountries'
 import CountryCard from '../components/CountryCard'
 import SearchIcon from '../../public/magnifying-glass-solid.svg'
-import { ThemeContext } from "../context/ThemeContext";
+import Theme from '../components/Theme';
 
 const Homepage = () => {
 
-    const { theme, toggleTheme } = useContext(ThemeContext);
     const [countries, setCountries] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedRegion, setSelectedRegion] = useState("All");
@@ -29,16 +28,14 @@ const Homepage = () => {
 
     return (
         <div>
+            <Theme/>
             <div className="homme-page">
                 <div className="container">
-                    <div className={`app-container ${theme}`}>
-                        <button onClick={toggleTheme}>Toggle Theme</button>
-                        <h1>{theme === "light" ? "Light Mode ☀️" : "Dark Mode 🌙"}</h1>
-                    </div>
                     <div className="search-part w-100 d-flex flex-wrap justify-content-between">
                         <div className="col-lg-5 col-md-6 col-12 search-container d-flex">
                             <img src={SearchIcon} alt="Search icon" className='sarch-icon' />
                             <input 
+                            id='search-country'
                             type="text"
                             placeholder='Search for a country...'
                             className='search-input'
@@ -48,6 +45,7 @@ const Homepage = () => {
 
                         <div className="col-lg-3 col-md-4 col-7 select-container">
                             <select 
+                            autoComplete='off'
                             name='region'
                             className='region-section'
                             value={selectedRegion}
