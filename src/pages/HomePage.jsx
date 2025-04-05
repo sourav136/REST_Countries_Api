@@ -5,7 +5,7 @@ import CountryCard from '../components/CountryCard'
 import SearchIcon from '../../public/magnifying-glass-solid.svg'
 import Theme from '../components/Theme';
 
-const Homepage = () => {
+const HomePage = () => {
 
     const [countries, setCountries] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
@@ -72,4 +72,4 @@ const Homepage = () => {
     );
 };
 
-export default Homepage;
+export default HomePage;
