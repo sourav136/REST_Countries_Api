@@ -1,4 +1,4 @@
-const Base_Url ="https://restcountries.com/v3.1";
+const Base_Url ="https://corsproxy.io/?https://restcountries.com/v3.1";
 
 export const fetchAllCountries= async () =>{
     try{
