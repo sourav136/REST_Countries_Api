@@ -1,7 +1,7 @@
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const fetch = require('node-fetch');
 
 exports.handler = async function(event) {
-  const { path, queryStringParameters } = event;
+  const { queryStringParameters } = event;
   let apiUrl = 'https://restcountries.com/v3.1';
 
   // Determine which endpoint to call based on query params
