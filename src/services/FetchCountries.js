@@ -1,9 +1,8 @@
-const CORS_PROXY = "https://api.allorigins.win/raw?url=";
-const API_BASE = "https://restcountries.com/v3.1";
+ const NETLIFY_PROXY = "/.netlify/functions/countries-proxy";
 
 export const fetchAllCountries = async () => {
   try {
-    const response = await fetch(`${CORS_PROXY}${API_BASE}/all`);
+    const response = await fetch(`${NETLIFY_PROXY}?all`);
     if (!response.ok) throw new Error(`Error: ${response.status}`);
     return await response.json();
   } catch (error) {
@@ -14,7 +13,7 @@ export const fetchAllCountries = async () => {
 
 export const fetchCountriesByName = async (name) => {
   try {
-    const response = await fetch(`${CORS_PROXY}${API_BASE}/name/${name}`);
+    const response = await fetch(`${NETLIFY_PROXY}?name=${encodeURIComponent(name)}`);
     if (!response.ok) throw new Error(`Error: ${response.status}`);
     return await response.json();
   } catch (error) {
@@ -25,10 +24,10 @@ export const fetchCountriesByName = async (name) => {
 
 export const fetchCountriesByCode = async (code) => {
   try {
-    const response = await fetch(`${CORS_PROXY}${API_BASE}/alpha/${code}`);
+    const response = await fetch(`${NETLIFY_PROXY}?alpha=${encodeURIComponent(code)}`);
     if (!response.ok) throw new Error(`Error: ${response.status}`);
     const data = await response.json();
-    return data[0];
+    return Array.isArray(data) ? data[0] : data;
   } catch (error) {
     console.error("Error fetching country by code", error);
     return null;

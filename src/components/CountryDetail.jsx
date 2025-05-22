@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/Styles.css';
-import { fetchCountriesByName, fetchCountriesBycode } from '../services/FetchCountries';
+import { fetchCountriesByName, fetchCountriesByCode } from '../services/FetchCountries';
 import { Link, useParams } from 'react-router-dom';
 
 const CountryDetail = () => {
@@ -18,7 +18,7 @@ const CountryDetail = () => {
                     if (data[0].borders){
                         const borderNames = await Promise.all(
                             data[0].borders.map(async (code) =>{
-                                const borderData = await fetchCountriesBycode(code);
+                                const borderData = await fetchCountriesByCode(code);
                                 return borderData ? borderData.name.common : null;
                             })
                         )
